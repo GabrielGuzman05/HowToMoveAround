@@ -5,6 +5,10 @@
  */
 package GUI;
 
+import howtomovearound.Datos;
+import howtomovearound.Paradero;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Gabriel
@@ -16,6 +20,11 @@ public class Menu_Principal extends javax.swing.JFrame {
      */
     public Menu_Principal() {
         initComponents();
+        Datos dat = new Datos();
+        dat.main();
+        for(Paradero p : dat.paraderos){
+            jComboBox2.addItem(p.getCodigo());
+        }
     }
 
     /**
@@ -45,9 +54,13 @@ public class Menu_Principal extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Buscar Lineas");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
@@ -63,14 +76,18 @@ public class Menu_Principal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel1))
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(jLabel1))
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,9 +100,9 @@ public class Menu_Principal extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(26, 26, 26)
                 .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(78, 78, 78))
+                .addGap(77, 77, 77))
         );
 
         pack();
@@ -94,6 +111,25 @@ public class Menu_Principal extends javax.swing.JFrame {
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Datos dat = new Datos();
+        dat.main();
+        int aux=0;
+        for(int i=0;i<dat.paraderos.size();i++){
+            if(jComboBox2.getSelectedItem().toString().equals(dat.paraderos.get(i).getCodigo())){
+                aux=i;
+            }
+        }
+        String lines="";
+        for(int i=0;i<dat.paraderos.get(aux).lineas.size();i++){
+            lines+=dat.paraderos.get(aux).lineas.get(i).getNombre();
+            if(i!=dat.paraderos.get(aux).lineas.size()-1){
+                lines+="-";
+            }
+        }
+        JOptionPane.showMessageDialog(rootPane, lines);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

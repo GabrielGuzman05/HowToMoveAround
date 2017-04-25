@@ -11,8 +11,8 @@ public class Datos {
 
     String baseDirectory=System.getProperty("user.dir");
     
-    ArrayList<Paradero> paraderos;
-    ArrayList<Linea> lineas;
+    public ArrayList<Paradero> paraderos;
+    public ArrayList<Linea> lineas;
     
     public void main(){
         paraderos = new ArrayList();
