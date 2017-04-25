@@ -15,6 +15,7 @@ public class Paradero {
         
         Paradero(String c){
             this.codigo=c;
+            this.lineas=new ArrayList();
         }
 
 	public String getCodigo() {

@@ -4,7 +4,6 @@ import java.util.*;
 
 public class Linea {
 
-	ArrayList<Paradero> paraderos;
 	private String nombre;
         
         Linea(String n){
@@ -13,8 +12,6 @@ public class Linea {
         
         Linea(String n,Paradero p){
             this.nombre=n;
-            this.paraderos=new ArrayList();
-            this.paraderos.add(p);
         }
         
 	public String getNombre() {
