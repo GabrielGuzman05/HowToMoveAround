@@ -6,7 +6,17 @@ public class Linea {
 
 	ArrayList<Paradero> paraderos;
 	private String nombre;
-
+        
+        Linea(String n){
+            this.nombre=n;
+        }
+        
+        Linea(String n,Paradero p){
+            this.nombre=n;
+            this.paraderos=new ArrayList();
+            this.paraderos.add(p);
+        }
+        
 	public String getNombre() {
 		return this.nombre;
 	}
