@@ -5,6 +5,9 @@
  */
 package howtomovearound;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 /**
  *
  * @author Gabriel
@@ -15,30 +18,46 @@ public class HowToMoveAround {
      * @param args the command line arguments
      */
     
-    private static Linea a1;
-    private static Linea a2;
-    private static Linea a3;
-    
-    private static Paradero p1;
-    private static Paradero p2;
-    private static Paradero p3;
-    private static Paradero p4;
-    
     public static void main(String[] args) {
-        initialize();
+        Datos dat= new Datos();
+        dat.main();
         System.out.println("¿En que paradero desea buscar?");
+        boolean notFound = true;
+        String paradero="";
+        int i;
+        do{
+            paradero=ingresarPalabras();
+            for(i=0;i<dat.paraderos.size();i++){
+                if(dat.paraderos.get(i).getCodigo().equals(paradero)){
+                    notFound=false;
+                    break;
+                }
+                if(i==dat.paraderos.size()-1&&notFound){
+                    System.out.println("Paradero no existe, ingrese de nuevo");
+                }
+            }
+        }while(notFound);
+        System.out.println("En este paradero se detienen las lineas");
+        for(int n=0;n<dat.paraderos.get(i).lineas.size();n++){
+            System.out.println(dat.paraderos.get(i).lineas.get(n).getNombre());
+        }
+
     }
     
-    public static void initialize(){
-        p1=new Paradero("A001",a1);
-        p2=new Paradero("A002",a2);
-        p3=new Paradero("A003",a3);
-        p4=new Paradero("A004",a1);
-        a1=new Linea("1A",p1);
-        a2=new Linea("1B",p2);
-        a3=new Linea("1C",p3);
-        p1.lineas.add(a2);
-        p1.lineas.add(a3);
+    public static String ingresarPalabras(){
+        boolean error;
+        String opcion="";
+        do{
+            error=false;
+        
+            try{
+                Scanner sc = new Scanner(System.in);
+                opcion=sc.nextLine();
+            }catch(InputMismatchException e){
+                error=true;
+                System.out.println("Error - Ingrese nuevamente");
+            }
+        }while(error);
+        return opcion;
     }
-    
 }
