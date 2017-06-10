@@ -1,4 +1,4 @@
-package howtomovearound;
+package problema;
 
 import java.util.*;
 
@@ -7,13 +7,13 @@ public class Paradero {
 	public ArrayList<Linea> lineas;
 	private String codigo;
         
-        Paradero(String c,Linea l){
+        public Paradero(String c,Linea l){
             this.codigo=c;
             this.lineas=new ArrayList();
             this.lineas.add(l);
         }
         
-        Paradero(String c){
+        public Paradero(String c){
             this.codigo=c;
             this.lineas=new ArrayList();
         }

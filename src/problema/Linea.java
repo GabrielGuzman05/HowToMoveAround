@@ -1,16 +1,15 @@
-package howtomovearound;
+package problema;
 
-import java.util.*;
 
 public class Linea {
 
 	private String nombre;
         
-        Linea(String n){
+        public Linea(String n){
             this.nombre=n;
         }
         
-        Linea(String n,Paradero p){
+        public Linea(String n,Paradero p){
             this.nombre=n;
         }
         
