@@ -7,7 +7,7 @@ package howtomovearound;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import problema.Datos;
+//import datos.Datos;
 
 /**
  *
@@ -19,15 +19,15 @@ public class OldWay {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Datos dat = new Datos();
-        dat.main();
+        //Datos dat = new Datos();
+        //dat.main();
         System.out.println("¿En que paradero desea buscar?");
         boolean notFound = true;
         String paradero = "";
         int i;
         do {
             paradero = ingresarPalabras();
-            for (i = 0; i < dat.paraderos.size(); i++) {
+            /*for (i = 0; i < dat.paraderos.size(); i++) {
                 if (dat.paraderos.get(i).getCodigo().equals(paradero)) {
                     notFound = false;
                     break;
@@ -36,11 +36,14 @@ public class OldWay {
                     System.out.println("Paradero no existe, ingrese de nuevo");
                 }
             }
+            */
         } while (notFound);
         System.out.println("En este paradero se detienen las lineas");
+        /*
         for (int n = 0; n < dat.paraderos.get(i).lineas.size(); n++) {
             System.out.println(dat.paraderos.get(i).lineas.get(n).getNombre());
         }
+        */
 
     }
 
