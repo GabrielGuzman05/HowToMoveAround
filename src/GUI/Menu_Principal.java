@@ -11,6 +11,7 @@ import com.teamdev.jxbrowser.chromium.Browser;
 import com.teamdev.jxbrowser.chromium.swing.BrowserView;
 import datos.Interpreter;
 import java.util.ArrayList;
+import problema.Gestor;
 import problema.Linea;
 //import datos.Datos;
 
@@ -29,10 +30,15 @@ public class Menu_Principal extends javax.swing.JFrame {
     public Menu_Principal() {
         initComponents();
         agregarJxBrowser();
-        Interpreter inter = new Interpreter();
-        inter.datosParadero().forEach((datosParadero) -> {
-            jComboBox2.addItem(datosParadero.getCodigo());
-        });
+        Gestor gestor = new Gestor();
+        agregarParaderos(gestor.codigosParaderos());
+        cargarMapa("file:///C:/Users/Gabriel/Documents/Java Ejercicios y Talleres/Progra2/HowToMoveAround/src/Archivos/Mapa.html");
+    }
+    
+    public void agregarParaderos(ArrayList<String> paraderos){
+        for (int i = 0; i < paraderos.size(); i++) {
+            jComboBox2.addItem(paraderos.get(i));
+        }
     }
 
     public void agregarJxBrowser() {
@@ -78,7 +84,7 @@ public class Menu_Principal extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 809, Short.MAX_VALUE)
+            .addGap(0, 636, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,6 +98,8 @@ public class Menu_Principal extends javax.swing.JFrame {
             }
         });
 
+        jComboBox2.setSelectedItem(jComboBox2.getItemAt(0));
+
         jLabel1.setText("Paradero");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -100,74 +108,41 @@ public class Menu_Principal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabel1))
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(20, 20, 20)
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(85, 85, 85)
                 .addComponent(jLabel1)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 251, Short.MAX_VALUE)
+                .addGap(153, 153, 153)
                 .addComponent(jButton1)
-                .addGap(77, 77, 77))
+                .addContainerGap(160, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        /*Datos dat = new Datos();
-        dat.main();
-        int aux=0;
-        for(int i=0;i<dat.paraderos.size();i++){
-            if(jComboBox2.getSelectedItem().toString().equals(dat.paraderos.get(i).getCodigo())){
-                aux=i;
-            }
-        }
-        String lines="";
-        for(int i=0;i<dat.paraderos.get(aux).lineas.size();i++){
-            lines+=dat.paraderos.get(aux).lineas.get(i).getNombre();
-            if(i!=dat.paraderos.get(aux).lineas.size()-1){
-                lines+="-";
-            }
-        }
-        JOptionPane.showMessageDialog(rootPane, lines);
-         */
-        Interpreter inter = new Interpreter();
-        Paradero aux = null;
-        for (Paradero p : inter.datosParadero()) {
-            if (jComboBox2.getSelectedItem().toString().equals(p.getCodigo())) {
-                aux = p;
-                break;
-            }
-        }
-        ArrayList<Linea> lineas = new ArrayList<>();
-        for (String linea : aux.getLineas()) {
-            for(Linea l : inter.datosLineas()){
-                if(linea.equals(l.getNombre())){
-                    lineas.add(l);
-                }
-            }
-        }
-        JOptionPane.showMessageDialog(rootPane, lineas.toString());
+        Gestor gestor = new Gestor();
+        System.out.println(gestor.lineaRequerida(jComboBox2.getSelectedItem().toString()));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

@@ -17,6 +17,10 @@ public class Interpreter {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Paradero> datosParadero() {
         ArrayList<Paradero> paraderos = new ArrayList<>();
         for (String paradero : f.lectura("Paraderos.txt")) {

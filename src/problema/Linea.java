@@ -39,5 +39,10 @@ public class Linea {
     public void setVuelta(String vuelta) {
         this.vuelta = vuelta;
     }
+
+    @Override
+    public String toString() {
+        return "Linea{" + "nombre=" + nombre + '}';
+    }
     
 }
