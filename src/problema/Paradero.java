@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Paradero {
 
-    public ArrayList<String> lineas;
+    public ArrayList<Linea> lineas;
     private String codigo;
 
     public Paradero(String c) {
@@ -20,15 +20,15 @@ public class Paradero {
         this.codigo = codigo;
     }
 
-    public void addLinea(String nombreLinea) {
-        lineas.add(nombreLinea);
+    public void addLinea(Linea line) {
+        lineas.add(line);
     }
 
-    public ArrayList<String> getLineas() {
+    public ArrayList<Linea> getLineas() {
         return lineas;
     }
 
-    public void setLineas(ArrayList<String> lineas) {
+    private void setLineas(ArrayList<Linea> lineas) {
         this.lineas = lineas;
     }
 

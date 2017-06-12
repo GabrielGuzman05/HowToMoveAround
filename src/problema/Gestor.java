@@ -47,9 +47,9 @@ public class Gestor {
         }
         
         ArrayList<Linea> correspondedLineas = new ArrayList<>();
-        for (String linea : aux.getLineas()) {
+        for (Linea linea : aux.getLineas()) {
             for (Linea l : lineas) {
-                if (linea.equals(l.getNombre())) {
+                if (linea.getNombre().equals(l.getNombre())) {
                     correspondedLineas.add(l);
                     //System.out.println(l.getIda()+"-----"+l.getVuelta());
                 }

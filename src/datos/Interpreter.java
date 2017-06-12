@@ -29,7 +29,8 @@ public class Interpreter {
             String[] aux2=aux[1].split(":");
             Paradero p = new Paradero(aux[0]);
             for (int i = 0; i < aux2.length; i++) {
-                p.addLinea(aux2[i]);
+                Linea l = new Linea(aux2[i]);
+                p.addLinea(l);
             }
             paraderos.add(p);
         }
