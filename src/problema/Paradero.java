@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Paradero {
 
-    private ArrayList<Linea> lineas;
+    public ArrayList<Linea> lineas;
     private String codigo;
 
     public Paradero(String c) {
