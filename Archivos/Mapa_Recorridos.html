@@ -21,7 +21,7 @@ and open the template in the editor.
 
             var mymap = L.map('mapid').setView([-38.73574, -72.59113], 13);
 
-            L.tileLayer('https://api.mapbox.com/styles/v1/gabrielguzman05/cj3brbyn700002rn4n2hgr7ql/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ2FicmllbGd1em1hbjA1IiwiYSI6ImNqMGpqNjNiaTAxbXgyd3RqMWNmenh1d3MifQ.IUKRyf-0Vs5kyReXeUT35Q', {
+            L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ2FicmllbGd1em1hbjA1IiwiYSI6ImNqMGpqNjNiaTAxbXgyd3RqMWNmenh1d3MifQ.IUKRyf-0Vs5kyReXeUT35Q', {
                 maxZoom: 18,
                 attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
                         '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
@@ -29,7 +29,7 @@ and open the template in the editor.
                 id: 'mapbox.streets'
             }).addTo(mymap);
             
-L.tileLayer('https://api.mapbox.com/styles/v1/ailarus/cj3sayrsv000c2snqcjymj33u/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWlsYXJ1cyIsImEiOiJjajNvc2k1aGswMGQxMndwZndjNW5wMHMzIn0.WWB3wvJGIdFMpS0xnqZL9A', {
+			L.tileLayer('https://api.mapbox.com/styles/v1/ailarus/cj3sayrsv000c2snqcjymj33u/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWlsYXJ1cyIsImEiOiJjajNvc2k1aGswMGQxMndwZndjNW5wMHMzIn0.WWB3wvJGIdFMpS0xnqZL9A', {
                 maxZoom: 18,
                 attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
                         '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
@@ -37,13 +37,30 @@ L.tileLayer('https://api.mapbox.com/styles/v1/ailarus/cj3sayrsv000c2snqcjymj33u/
                 id: 'mapbox.streets'
             }).addTo(mymap);
             
-L.tileLayer('https://api.mapbox.com/styles/v1/ailarus/cj3se1siu00002rmwqzg1kyu6/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWlsYXJ1cyIsImEiOiJjajNvc2k1aGswMGQxMndwZndjNW5wMHMzIn0.WWB3wvJGIdFMpS0xnqZL9A', {
+			L.tileLayer('https://api.mapbox.com/styles/v1/ailarus/cj3se1siu00002rmwqzg1kyu6/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWlsYXJ1cyIsImEiOiJjajNvc2k1aGswMGQxMndwZndjNW5wMHMzIn0.WWB3wvJGIdFMpS0xnqZL9A', {
                 maxZoom: 18,
                 attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
                         '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
                         'Imagery © <a href="http://mapbox.com">Mapbox</a>',
                 id: 'mapbox.streets'
             }).addTo(mymap);
+			
+			var P001 = L.marker([-38.680297, -72.505648]).bindPopup('Este es el paradero 001').addTo(mymap);
+			var P002 = L.marker([-38.682427, -72.504261]).bindPopup('Este es el paradero 002').addTo(mymap);
+			var P003 = L.marker([-38.718225, -72.504261]).bindPopup('Este es el paradero 003').addTo(mymap);
+			var P004 = L.marker([-38.718886, -72.567350]).bindPopup('Este es el paradero 004').addTo(mymap);
+			var P005 = L.marker([-38.721256, -72.571463]).bindPopup('Este es el paradero 005').addTo(mymap);
+			var P006 = L.marker([-38.727442, -72.577826]).bindPopup('Este es el paradero 006').addTo(mymap);
+			var P007 = L.marker([-38.737145, -72.584424]).bindPopup('Este es el paradero 007').addTo(mymap);
+			var P008 = L.marker([-38.736106, -72.591103]).bindPopup('Este es el paradero 008').addTo(mymap);
+			var P009 = L.marker([-38.736286, -72.604146]).bindPopup('Este es el paradero 009').addTo(mymap);
+			var P010 = L.marker([-38.737140, -72.596164]).bindPopup('Este es el paradero 010').addTo(mymap);
+			var P011 = L.marker([-38.740934, -72.603250]).bindPopup('Este es el paradero 011').addTo(mymap);
+			var P012 = L.marker([-38.749478, -72.614340]).bindPopup('Este es el paradero 012').addTo(mymap);
+			var P013 = L.marker([-38.750824, -72.617074]).bindPopup('Este es el paradero 013').addTo(mymap);
+			var P014 = L.marker([-38.746468, -72.617302]).bindPopup('Este es el paradero 014').addTo(mymap);
+			
+			
         </script>
     </body>
 </html>
