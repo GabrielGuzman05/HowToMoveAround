@@ -1,9 +1,12 @@
 <!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <html>
     <head>
-
-        <title>Lineas</title>
-
+        <title>TODO supply a title</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,14 +14,8 @@
 
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ==" crossorigin=""/>
         <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js" integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg==" crossorigin=""></script>
-
-
-
     </head>
     <body>
-
-
-
         <div id="mapid" style="width: 600px; height: 400px;"></div>
         <script>
 
@@ -31,10 +28,22 @@
                         'Imagery © <a href="http://mapbox.com">Mapbox</a>',
                 id: 'mapbox.streets'
             }).addTo(mymap);
-
+            
+L.tileLayer('https://api.mapbox.com/styles/v1/ailarus/cj3sayrsv000c2snqcjymj33u/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWlsYXJ1cyIsImEiOiJjajNvc2k1aGswMGQxMndwZndjNW5wMHMzIn0.WWB3wvJGIdFMpS0xnqZL9A', {
+                maxZoom: 18,
+                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+                        '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                        'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+                id: 'mapbox.streets'
+            }).addTo(mymap);
+            
+L.tileLayer('https://api.mapbox.com/styles/v1/ailarus/cj3se1siu00002rmwqzg1kyu6/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWlsYXJ1cyIsImEiOiJjajNvc2k1aGswMGQxMndwZndjNW5wMHMzIn0.WWB3wvJGIdFMpS0xnqZL9A', {
+                maxZoom: 18,
+                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+                        '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                        'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+                id: 'mapbox.streets'
+            }).addTo(mymap);
         </script>
-
-
-
     </body>
 </html>

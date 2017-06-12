@@ -1,4 +1,0 @@
-IDA
-https://api.mapbox.com/styles/v1/manuelev/cj3qrbo3000022rny62t62g8e.html?title=true&access_token=pk.eyJ1IjoibWFudWVsZXYiLCJhIjoiY2ozb3Q3MDMzMDBhaTMycXRwMGV5dW1yOSJ9.14cJrDaA87E6DjRKor3xhA#12.5/-38.746803/-72.632240/0
-VUELTA
-https://api.mapbox.com/styles/v1/manuelev/cj3qse4z200032rnyuup75m43.html?title=true&access_token=pk.eyJ1IjoibWFudWVsZXYiLCJhIjoiY2ozb3Q3MDMzMDBhaTMycXRwMGV5dW1yOSJ9.14cJrDaA87E6DjRKor3xhA#13.3/-38.739782/-72.595005/0

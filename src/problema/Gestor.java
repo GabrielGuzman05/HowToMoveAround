@@ -5,6 +5,7 @@
  */
 package problema;
 
+import datos.FileHandler;
 import datos.Interpreter;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
@@ -50,6 +51,7 @@ public class Gestor {
             for (Linea l : lineas) {
                 if (linea.equals(l.getNombre())) {
                     correspondedLineas.add(l);
+                    //System.out.println(l.getIda()+"-----"+l.getVuelta());
                 }
             }
         }
@@ -58,8 +60,20 @@ public class Gestor {
         for (int i = 0; i < correspondedLineas.size(); i++) {
             jcb.addItem(correspondedLineas.get(i).getNombre());
         }
-        JOptionPane.showMessageDialog(null, jcb, "Seleccione el tipo de dato a buscar", JOptionPane.QUESTION_MESSAGE);
-        
-        return jcb.getSelectedItem().toString();
+        JOptionPane.showMessageDialog(null, jcb, "Seleccione que linea desea mostrar", JOptionPane.QUESTION_MESSAGE);
+        //System.out.println(jcb.getSelectedItem().toString());
+        recorridosEnMapa(correspondedLineas.get(jcb.getSelectedIndex()));
+        return System.getProperty("user.dir") + "\\Archivos\\Mapa_Recorridos.html";
+    }
+    
+    public void recorridosEnMapa(Linea l){
+        FileHandler file = new FileHandler(System.getProperty("user.dir") + "\\Archivos\\");
+        ArrayList<String> aux = file.lectura("Mapa_Recorridos.html");
+        //lineas 32 y 40
+        aux.add(31, "            L.tileLayer('"+l.getIda()+"', {");
+        aux.remove(32);
+        aux.add(39, "            L.tileLayer('"+l.getVuelta()+"', {");
+        aux.remove(40);
+        file.escritura(aux, "Mapa_Recorridos.html");
     }
 }

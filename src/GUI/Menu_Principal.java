@@ -32,7 +32,7 @@ public class Menu_Principal extends javax.swing.JFrame {
         agregarJxBrowser();
         Gestor gestor = new Gestor();
         agregarParaderos(gestor.codigosParaderos());
-        cargarMapa("file:///C:/Users/Gabriel/Documents/Java Ejercicios y Talleres/Progra2/HowToMoveAround/src/Archivos/Mapa.html");
+        cargarMapa("file:///"+System.getProperty("user.dir") + "/Archivos/Mapa_Base.html");
     }
     
     public void agregarParaderos(ArrayList<String> paraderos){
@@ -142,7 +142,7 @@ public class Menu_Principal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Gestor gestor = new Gestor();
-        System.out.println(gestor.lineaRequerida(jComboBox2.getSelectedItem().toString()));
+        cargarMapa(gestor.lineaRequerida(jComboBox2.getSelectedItem().toString()));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

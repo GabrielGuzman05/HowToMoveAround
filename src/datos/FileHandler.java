@@ -2,24 +2,24 @@ package datos;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
-//import problema.*;
 
 public class FileHandler {
-    
+
     private final String ruta;
 
     public FileHandler(String ruta) {
         this.ruta = ruta;
     }
-    
+
     public ArrayList<String> lectura(String archivo) {
 
         ArrayList<String> datos = new ArrayList<>();
 
         // Fichero del que queremos leer
-        File fichero = new File(ruta+archivo);
+        File fichero = new File(ruta + archivo);
         //System.out.println(ruta+archivo);
         Scanner s = null;
 
@@ -53,5 +53,26 @@ public class FileHandler {
         }
          */
         return datos;
+    }
+
+    public void escritura(ArrayList<String> strings,String archivo) {
+        /**
+         * FORMA 1 DE ESCRITURA *
+         */
+        FileWriter fichero = null;
+        try {
+
+            fichero = new FileWriter(ruta+archivo);
+
+            // Escribimos linea a linea en el fichero
+            for (String str : strings) {
+                fichero.write(str + "\n");
+            }
+
+            fichero.close();
+
+        } catch (Exception ex) {
+            System.out.println("Mensaje de la excepción: " + ex.getMessage());
+        }
     }
 }
