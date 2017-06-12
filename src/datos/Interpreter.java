@@ -46,4 +46,12 @@ public class Interpreter {
         }
         return lineas;
     }
+    
+    public ArrayList<String> leerHtml(){
+        return f.lectura("Mapa_Recorridos.html");
+    }
+    
+    public void escribirHtml(ArrayList<String> newHtml){
+        f.escritura(newHtml, "Mapa_Recorridos.html");
+    }
 }

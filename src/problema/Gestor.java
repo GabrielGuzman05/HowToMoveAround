@@ -5,7 +5,6 @@
  */
 package problema;
 
-import datos.FileHandler;
 import datos.Interpreter;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
@@ -17,8 +16,8 @@ import javax.swing.JOptionPane;
  */
 public class Gestor {
 
-    private ArrayList<Paradero> paraderos;
-    private ArrayList<Linea> lineas;
+    private final ArrayList<Paradero> paraderos;
+    private final ArrayList<Linea> lineas;
 
     /**
      *
@@ -67,13 +66,13 @@ public class Gestor {
     }
     
     public void recorridosEnMapa(Linea l){
-        FileHandler file = new FileHandler(System.getProperty("user.dir") + "\\Archivos\\");
-        ArrayList<String> aux = file.lectura("Mapa_Recorridos.html");
+        Interpreter inter = new Interpreter();
+        ArrayList<String> aux = inter.leerHtml();
         //lineas 32 y 40
         aux.add(31, "            L.tileLayer('"+l.getIda()+"', {");
         aux.remove(32);
         aux.add(39, "            L.tileLayer('"+l.getVuelta()+"', {");
         aux.remove(40);
-        file.escritura(aux, "Mapa_Recorridos.html");
+        inter.escribirHtml(aux);
     }
 }

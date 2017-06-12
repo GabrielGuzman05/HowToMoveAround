@@ -5,15 +5,10 @@
  */
 package GUI;
 
-import problema.Paradero;
-import javax.swing.JOptionPane;
 import com.teamdev.jxbrowser.chromium.Browser;
 import com.teamdev.jxbrowser.chromium.swing.BrowserView;
-import datos.Interpreter;
 import java.util.ArrayList;
 import problema.Gestor;
-import problema.Linea;
-//import datos.Datos;
 
 /**
  *
