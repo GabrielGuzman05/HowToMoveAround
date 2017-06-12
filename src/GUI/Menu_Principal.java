@@ -30,13 +30,13 @@ public class Menu_Principal extends javax.swing.JFrame {
         cargarMapa("file:///"+System.getProperty("user.dir") + "/Archivos/Mapa_Base.html");
     }
     
-    public void agregarParaderos(ArrayList<String> paraderos){
+    private void agregarParaderos(ArrayList<String> paraderos){
         for (int i = 0; i < paraderos.size(); i++) {
             jComboBox2.addItem(paraderos.get(i));
         }
     }
 
-    public void agregarJxBrowser() {
+    private void agregarJxBrowser() {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -182,7 +182,7 @@ public class Menu_Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
-    public void cargarMapa(String direccion) {
+    private void cargarMapa(String direccion) {
         browser.loadURL(direccion);
     }
 }
