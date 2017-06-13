@@ -99,10 +99,10 @@ public class Menu_Principal extends javax.swing.JFrame {
 
         jLParaderos.setText("Paradero");
 
-        jLIda.setText("<html> <font color=\"red\">Ida</font> </html>");
+        jLIda.setText("<html> <font color=\"blue\">Ida</font> </html>");
         jLIda.setVisible(false);
 
-        jLVuelta.setText("<html> \n\t<font color=\"blue\">Vuelta</font> \n</html>");
+        jLVuelta.setText("<html>  \t<font color=\"red\">Vuelta</font>  </html>");
         jLVuelta.setVisible(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

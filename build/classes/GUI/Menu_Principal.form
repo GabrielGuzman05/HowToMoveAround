@@ -129,7 +129,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLIda">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;font color=&quot;red&quot;&gt;Ida&lt;/font&gt; &lt;/html&gt;"/>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;font color=&quot;blue&quot;&gt;Ida&lt;/font&gt; &lt;/html&gt;"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jLIda.setVisible(false);"/>
@@ -137,7 +137,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLVuelta">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt; &#xa;&#x9;&lt;font color=&quot;blue&quot;&gt;Vuelta&lt;/font&gt; &#xa;&lt;/html&gt;"/>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;  &#x9;&lt;font color=&quot;red&quot;&gt;Vuelta&lt;/font&gt;  &lt;/html&gt;"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jLVuelta.setVisible(false);"/>
