@@ -13,7 +13,8 @@ import GUI.Menu_Principal;
  */
 public class HowToMoveAround {
 
-    /**
+    /**El metodo por defecto que inicia el programa, se encarga de crear una
+     * instancia de Menu Principal y volverla visible
      * @param args the command line arguments
      */
     

@@ -22,6 +22,12 @@ public class Menu_Principal extends javax.swing.JFrame {
     private final Browser browser = new Browser();
     private final BrowserView view = new BrowserView(browser);
 
+    /**
+     *El constructor de la clase Menu_Principal, se genera por defecto gracias
+     * a la IDE de NetBeans, se encarga de iniciar los componentes visuales y 
+     * que se mantenga la relacion de aspecto de estos, ademas se agrega el 
+     * Browser a la GUI y se inicializa el mapa base en esta.
+     */
     public Menu_Principal() {
         initComponents();
         agregarJxBrowser();

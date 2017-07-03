@@ -20,7 +20,7 @@ public class Gestor {
     private final ArrayList<Linea> lineas;
 
     /**
-     *
+     *Metodo que inicializa los datos de los paraderos y las lineas
      */
     public Gestor() {
         Interpreter m = new Interpreter();
@@ -28,6 +28,11 @@ public class Gestor {
         paraderos = m.datosParadero();
     }
 
+    /**
+     *Es el metodo que permite entregar los nombres/codigos de todos los 
+     * paraderos para su posterior uso.
+     * @return un arrayList con todos los codigos de los paraderos encontrados
+     */
     public ArrayList<String> codigosParaderos() {
         ArrayList<String> codigos = new ArrayList<>();
         for (Paradero p : paraderos) {
@@ -36,6 +41,14 @@ public class Gestor {
         return codigos;
     }
 
+    /**
+     *Metodo que recibe el paradero seleccionado, muestra que lineas se 
+     * encuentran en esta y finalmente permite seleccionar alguna mediante un
+     * comboBox
+     * @param paraderoSeleccionado codigo del paradero seleccionado
+     * @return un String que corresponde a la direccion del html que contiene un
+     * mapa con la linea que haya sido requerida
+     */
     public String lineaRequerida(String paraderoSeleccionado) {
         Paradero aux = null;
         for (Paradero p : paraderos) {
@@ -65,6 +78,12 @@ public class Gestor {
         return System.getProperty("user.dir") + "\\Archivos\\Mapa_Recorridos.html";
     }
     
+    /**
+     *Este metodo reemplaza en el archivo html que visualiza los recorridos, los
+     * links que representan los recorridos que correspondan segun la linea que
+     * se le entregue.
+     * @param l una instancia de la clase linea
+     */
     public void recorridosEnMapa(Linea l){
         Interpreter inter = new Interpreter();
         ArrayList<String> aux = inter.leerHtml();
