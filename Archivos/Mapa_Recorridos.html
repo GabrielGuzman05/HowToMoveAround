@@ -1,78 +1,101 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+	
+	<title>Layers Control Tutorial - Leaflet</title>
 
-        <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
 
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ==" crossorigin=""/>
-        <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js" integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg==" crossorigin=""></script>
-    </head>
-    <body>
-        <div id="mapid" style="width: 600px; height: 400px;"></div>
-        <script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js" integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg==" crossorigin=""></script>
 
-            var mymap = L.map('mapid').setView([-38.73574, -72.59113], 13);
 
-            L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ2FicmllbGd1em1hbjA1IiwiYSI6ImNqMGpqNjNiaTAxbXgyd3RqMWNmenh1d3MifQ.IUKRyf-0Vs5kyReXeUT35Q', {
-                maxZoom: 18,
-                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+	<style>
+		#map {
+			width: 600px;
+			height: 400px;
+		}
+	</style>
+
+	
+</head>
+<body>
+
+<div id='map'></div>
+
+<script>
+	var cities = L.layerGroup();
+	
+	L.marker([-38.680297, -72.505648]).bindPopup('Este es el paradero 001').addTo(cities),
+	L.marker([-38.682427, -72.504261]).bindPopup('Este es el paradero 002').addTo(cities),
+	L.marker([-38.676857, -72.506158]).bindPopup('Este es el paradero 003').addTo(cities),
+	L.marker([-38.718886, -72.567350]).bindPopup('Este es el paradero 004').addTo(cities),
+	L.marker([-38.721256, -72.571463]).bindPopup('Este es el paradero 005').addTo(cities),
+	L.marker([-38.727442, -72.577826]).bindPopup('Este es el paradero 006').addTo(cities),
+	L.marker([-38.737145, -72.584424]).bindPopup('Este es el paradero 007').addTo(cities),
+	L.marker([-38.736106, -72.591103]).bindPopup('Este es el paradero 008').addTo(cities),
+	L.marker([-38.736286, -72.604146]).bindPopup('Este es el paradero 009').addTo(cities),
+	L.marker([-38.737140, -72.596164]).bindPopup('Este es el paradero 010').addTo(cities),
+	L.marker([-38.740934, -72.603250]).bindPopup('Este es el paradero 011').addTo(cities),
+	L.marker([-38.749478, -72.614340]).bindPopup('Este es el paradero 012').addTo(cities),
+	L.marker([-38.750824, -72.617074]).bindPopup('Este es el paradero 013').addTo(cities),
+	L.marker([-38.746468, -72.617302]).bindPopup('Este es el paradero 014').addTo(cities);
+	L.marker([-38.754546, -72.622004]).bindPopup('Este es el paradero 015').addTo(cities);
+	L.marker([-38.754462, -72.626453]).bindPopup('Este es el paradero 016').addTo(cities);
+	L.marker([-38.755324, -72.635840]).bindPopup('Este es el paradero 017').addTo(cities);
+	L.marker([-38.756281, -72.640399]).bindPopup('Este es el paradero 018').addTo(cities);
+	L.marker([-38.757191, -72.654573]).bindPopup('Este es el paradero 019').addTo(cities);
+	L.marker([-38.757581, -72.652260]).bindPopup('Este es el paradero 020').addTo(cities);
+	L.marker([-38.754127, -72.589729]).bindPopup('Este es el paradero 021').addTo(cities);
+	L.marker([-38.763030, -72.596741]).bindPopup('Este es el paradero 022').addTo(cities);
+	L.marker([-38.771348, -72.597444]).bindPopup('Este es el paradero 023').addTo(cities);
+	L.marker([-38.775574, -72.595040]).bindPopup('Este es el paradero 024').addTo(cities);
+	L.marker([-38.775534, -72.588929]).bindPopup('Este es el paradero 025').addTo(cities);
+	L.marker([-38.744441, -72.587773]).bindPopup('Este es el paradero 026').addTo(cities);
+
+	var mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+		mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+
+	var ida   = L.tileLayer('https://api.mapbox.com/styles/v1/ailarus/cj3ujbopd00072sokzp18kw2o/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWlsYXJ1cyIsImEiOiJjajNvc2k1aGswMGQxMndwZndjNW5wMHMzIn0.WWB3wvJGIdFMpS0xnqZL9A', {
+					maxZoom: 18,
+					attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
                         '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
                         'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-                id: 'mapbox.streets'
-            }).addTo(mymap);
-            
-            L.tileLayer('https://api.mapbox.com/styles/v1/ailarus/cj4c2nwih4tsl2spfbe63czl5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWlsYXJ1cyIsImEiOiJjajNvc2k1aGswMGQxMndwZndjNW5wMHMzIn0.WWB3wvJGIdFMpS0xnqZL9A', {
-                maxZoom: 18,
-                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+					id: 'mapbox.streets'
+				}),
+		vuelta	= L.tileLayer('https://api.mapbox.com/styles/v1/ailarus/cj3uj8iy900052rs59rg5lebo/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWlsYXJ1cyIsImEiOiJjajNvc2k1aGswMGQxMndwZndjNW5wMHMzIn0.WWB3wvJGIdFMpS0xnqZL9A', {
+					maxZoom: 18,
+					attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
                         '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
                         'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-                id: 'mapbox.streets'
-            }).addTo(mymap);
-            
-            L.tileLayer('https://api.mapbox.com/styles/v1/ailarus/cj4p3t61f0owx2rquqhqadvvt/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWlsYXJ1cyIsImEiOiJjajNvc2k1aGswMGQxMndwZndjNW5wMHMzIn0.WWB3wvJGIdFMpS0xnqZL9A', {
-                maxZoom: 18,
-                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-                        '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                        'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-                id: 'mapbox.streets'
-            }).addTo(mymap);
-             
-			var P001 = L.marker([-38.680297, -72.505648]).bindPopup('Este es el paradero 001').addTo(mymap);
-			var P002 = L.marker([-38.682427, -72.504261]).bindPopup('Este es el paradero 002').addTo(mymap);
-			var P003 = L.marker([-38.676857, -72.506158]).bindPopup('Este es el paradero 003').addTo(mymap);
-			var P004 = L.marker([-38.718886, -72.567350]).bindPopup('Este es el paradero 004').addTo(mymap);
-			var P005 = L.marker([-38.721256, -72.571463]).bindPopup('Este es el paradero 005').addTo(mymap);
-			var P006 = L.marker([-38.727442, -72.577826]).bindPopup('Este es el paradero 006').addTo(mymap);
-			var P007 = L.marker([-38.737145, -72.584424]).bindPopup('Este es el paradero 007').addTo(mymap);
-			var P008 = L.marker([-38.736106, -72.591103]).bindPopup('Este es el paradero 008').addTo(mymap);
-			var P009 = L.marker([-38.736286, -72.604146]).bindPopup('Este es el paradero 009').addTo(mymap);
-			var P010 = L.marker([-38.737140, -72.596164]).bindPopup('Este es el paradero 010').addTo(mymap);
-			var P011 = L.marker([-38.740934, -72.603250]).bindPopup('Este es el paradero 011').addTo(mymap);
-			var P012 = L.marker([-38.749478, -72.614340]).bindPopup('Este es el paradero 012').addTo(mymap);
-			var P013 = L.marker([-38.750824, -72.617074]).bindPopup('Este es el paradero 013').addTo(mymap);
-			var P014 = L.marker([-38.746468, -72.617302]).bindPopup('Este es el paradero 014').addTo(mymap);
-                        var P015 = L.marker([-38.754546, -72.622004]).bindPopup('Este es el paradero 015').addTo(mymap);
-			var P016 = L.marker([-38.754462, -72.626453]).bindPopup('Este es el paradero 016').addTo(mymap);
-			var P017 = L.marker([-38.755324, -72.635840]).bindPopup('Este es el paradero 017').addTo(mymap);
-			var P018 = L.marker([-38.756281, -72.640399]).bindPopup('Este es el paradero 018').addTo(mymap);
-			var P019 = L.marker([-38.757191, -72.654573]).bindPopup('Este es el paradero 019').addTo(mymap);
-			var P020 = L.marker([-38.757581, -72.652260]).bindPopup('Este es el paradero 020').addTo(mymap);
-			var P021 = L.marker([-38.754127, -72.589729]).bindPopup('Este es el paradero 021').addTo(mymap);
-			var P022 = L.marker([-38.763030, -72.596741]).bindPopup('Este es el paradero 022').addTo(mymap);
-			var P023 = L.marker([-38.771348, -72.597444]).bindPopup('Este es el paradero 023').addTo(mymap);
-			var P024 = L.marker([-38.775574, -72.595040]).bindPopup('Este es el paradero 024').addTo(mymap);
-			var P025 = L.marker([-38.775534, -72.588929]).bindPopup('Este es el paradero 025').addTo(mymap);
-			var P026 = L.marker([-38.744441, -72.587773]).bindPopup('Este es el paradero 026').addTo(mymap);
-			
-			
-        </script>
-    </body>
+					id: 'mapbox.streets'
+				}),
+		streets  = L.tileLayer(mbUrl, {id: 'mapbox.streets',   attribution: mbAttr});
+
+	var map = L.map('map', {
+		center: [-38.73574, -72.59113],
+		zoom: 13,
+		layers: [streets, cities]
+	});
+
+	var baseLayers = {
+		"Ida": ida,
+		"Vuelta": vuelta
+	};
+
+	var overlays = {
+		"Paraderos": cities
+	};
+
+	L.control.layers(baseLayers, overlays).addTo(map);
+</script>
+
+
+
+</body>
 </html>

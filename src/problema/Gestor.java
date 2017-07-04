@@ -88,10 +88,10 @@ public class Gestor {
         Interpreter inter = new Interpreter();
         ArrayList<String> aux = inter.leerHtml();
         //lineas 32 y 40
-        aux.add(31, "            L.tileLayer('"+l.getIda()+"', {");
-        aux.remove(32);
-        aux.add(39, "            L.tileLayer('"+l.getVuelta()+"', {");
-        aux.remove(40);
+        aux.add(63,"	var ida   = L.tileLayer('"+l.getIda()+"', {");
+        aux.remove(64);
+        aux.add(70, "		vuelta	= L.tileLayer('"+l.getVuelta()+"', {");
+        aux.remove(71);
         inter.escribirHtml(aux);
     }
 }
